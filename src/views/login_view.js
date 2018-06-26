@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { registerUser } from "../actions/actions";
 
 class LoginView extends Component {
@@ -23,14 +24,16 @@ class LoginView extends Component {
       <div>
         <h1>WELCOME</h1>
         <p>hi</p>
-        <input onChange={onInputChange} />
-        <button onClick={handleLoginButtonClick}>Login</button>
+        <input onChange={this.onInputChange} />
+        <Link to="/d/">
+          <button onClick={this.handleLoginButtonClick}>Login</button>
+        </Link>
       </div>
     );
   }
 }
 
-export const mapDispatchToProps = dispath => {
+export const mapDispatchToProps = dispatch => {
   return {
     onUserLogin: phoneNumber => dispatch(registerUser({ phoneNumber }))
   };
