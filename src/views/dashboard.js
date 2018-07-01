@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { rootSelectors as selectors } from "../reducers/index";
 import Header from "../components/header";
+import Scrollable from "../components/scrollable";
 import { requestFakeData } from "../actions/products";
 
 class Dashboard extends Component {
@@ -18,14 +19,16 @@ class Dashboard extends Component {
     return (
       <div>
         <Header />
-        <p>User: {userPhoneNumber}</p>
-        <ul>
-          {items.length > 0
-            ? items.map(item => {
-                return <li key={item.id}>{item.id}</li>;
-              })
-            : null}
-        </ul>
+        <Scrollable>
+          <p>User: {userPhoneNumber}</p>
+          <ul>
+            {items.length > 0
+              ? items.map(item => {
+                  return <li key={item.id}>{item.id}</li>;
+                })
+              : null}
+          </ul>
+        </Scrollable>
       </div>
     );
   }
