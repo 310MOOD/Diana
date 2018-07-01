@@ -24,7 +24,14 @@ class Dashboard extends Component {
           <ul>
             {items.length > 0
               ? items.map(item => {
-                  return <li key={item.id}>{item.id}</li>;
+                  return (
+                    <li key={item.id}>
+                      <img
+                        alt="robots"
+                        src={`https://robohash.org/${item.id}?size=200x200`}
+                      />
+                    </li>
+                  );
                 })
               : null}
           </ul>
