@@ -10,12 +10,8 @@ class Dashboard extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.onRequestFakeData();
-  }
-
   render() {
-    const { items, userPhoneNumber } = this.props;
+    const { userPhoneNumber } = this.props;
     return (
       <div>
         <Scrollable>
@@ -30,18 +26,8 @@ export const mapStateToProps = state => {
   const { getAccountSelectors, getProductSelectors } = selectors(state);
 
   return {
-    userPhoneNumber: getAccountSelectors().getUserPhoneNumber(),
-    items: getProductSelectors().getItems()
+    userPhoneNumber: getAccountSelectors().getUserPhoneNumber()
   };
 };
 
-export const mapDispatchToProps = dispatch => {
-  return {
-    onRequestFakeData: () => dispatch(requestFakeData())
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Dashboard);
+export default connect(mapStateToProps)(Dashboard);
