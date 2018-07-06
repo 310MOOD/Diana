@@ -17,30 +17,28 @@ class ProductList extends Component {
     this.props.onRequestFakeData();
   }
 
-  togglePopup() {
+  togglePopup = () => {
     this.setState({
       showPopup: !this.state.showPopup
     });
-  }
+  };
 
   render() {
-    const { items, userPhoneNumber } = this.props;
+    const { items } = this.props;
     return (
       <div>
         <ul>
           {items.length > 0
             ? items.map(item => {
+                const { name, price, imageSrc } = item;
                 return (
                   <div className="fl w-20" key={item.id}>
-                    <a onClick={this.togglePopup.bind(this)}>
-                      <img
-                        alt="robots"
-                        src={`https://robohash.org/${item.id}?size=200x200`}
-                      />
+                    <a onClick={this.togglePopup}>
+                      <img alt="robots" src={imageSrc} />
                     </a>
-                    <a onClick={this.togglePopup.bind(this)}>
-                      <p>Name</p>
-                      <p>310MOOD / $199</p>
+                    <a onClick={this.togglePopup}>
+                      <p>{name}</p>
+                      <p>310MOOD / ${price}</p>
                     </a>
                   </div>
                 );
@@ -49,10 +47,7 @@ class ProductList extends Component {
         </ul>
         <div className="app">
           {this.state.showPopup ? (
-            <ProductInfo
-              text="Close Me"
-              closePopup={this.togglePopup.bind(this)}
-            />
+            <ProductInfo text="Close Me" closePopup={this.togglePopup} /> //do lazy loading here
           ) : null}
         </div>
       </div>
