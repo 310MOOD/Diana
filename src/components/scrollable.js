@@ -5,8 +5,8 @@ const Scrollable = props => {
     <div
       style={{
         overflowY: "scroll",
-        border: "1px solid black",
-        height: "500px"
+        // border: "1px solid black",
+        height: "600px"
       }}
     >
       {props.children}
