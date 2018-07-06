@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { rootSelectors as selectors } from "../reducers/index";
 import Header from "../components/header";
+import ProductList from "../components/product_list";
 import Scrollable from "../components/scrollable";
 import { requestFakeData } from "../actions/products";
 
@@ -20,21 +21,7 @@ class Dashboard extends Component {
       <div>
         <Header />
         <Scrollable>
-          <p>User: {userPhoneNumber}</p>
-          <ul>
-            {items.length > 0
-              ? items.map(item => {
-                  return (
-                    <li key={item.id}>
-                      <img
-                        alt="robots"
-                        src={`https://robohash.org/${item.id}?size=200x200`}
-                      />
-                    </li>
-                  );
-                })
-              : null}
-          </ul>
+          <ProductList />
         </Scrollable>
       </div>
     );

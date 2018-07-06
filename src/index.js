@@ -7,6 +7,7 @@ import rootReducer from "./reducers/index";
 import "./index.css";
 import App from "./apps/App";
 import registerServiceWorker from "./registerServiceWorker";
+import "tachyons";
 
 const store = createStore(
   rootReducer,
