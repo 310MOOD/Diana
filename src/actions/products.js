@@ -25,3 +25,8 @@ export const changeSeletedCategory = ({ newType }) => ({
   type: ACTIONS.CHANGE_SELECTED_CATEGORY,
   newType
 });
+
+export const changeActiveItem = ({ item }) => ({
+  type: ACTIONS.CHANGE_ACTIVE_ITEM,
+  newActiveItem: item
+});
