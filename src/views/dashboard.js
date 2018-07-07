@@ -13,11 +13,9 @@ class Dashboard extends Component {
   render() {
     const { userPhoneNumber } = this.props;
     return (
-      <div>
-        <Scrollable>
-          <ProductList />
-        </Scrollable>
-      </div>
+      <Scrollable>
+        <ProductList className="w-80" />
+      </Scrollable>
     );
   }
 }

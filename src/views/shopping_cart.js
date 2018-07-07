@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import CartList from "../components/cart_list";
 
 class ShoppingCart extends Component {
   constructor() {
@@ -7,7 +8,7 @@ class ShoppingCart extends Component {
   }
 
   render() {
-    return <div>cart</div>;
+    return <CartList />;
   }
 }
 
