@@ -24,11 +24,11 @@ class ProductList extends Component {
   };
 
   render() {
-    const { items } = this.props;
+    const { selectedItems } = this.props;
     return (
       <div>
-        {items.length > 0
-          ? items.map(item => {
+        {selectedItems.length > 0
+          ? selectedItems.map(item => {
               const { name, price, imageSrc } = item;
               return (
                 <div className="fl w-20 ph1" key={item.id}>
@@ -59,13 +59,13 @@ export const mapStateToProps = state => {
 
   return {
     userPhoneNumber: getAccountSelectors().getUserPhoneNumber(),
-    items: getProductSelectors().getItems()
+    selectedItems: getProductSelectors().getselectedItems()
   };
 };
 
 export const mapDispatchToProps = dispatch => {
   return {
-    onRequestFakeData: () => dispatch(requestFakeData())
+    onRequestFakeData: payload => dispatch(requestFakeData(payload))
   };
 };
 

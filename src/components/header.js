@@ -1,35 +1,57 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import logo from "../img/logo.png";
 import { Route, Link } from "react-router-dom";
+import { CATEGORIES } from "../constants";
+import { changeSeletedCategory } from "../actions/products";
 
 class Header extends Component {
   constructor(props) {
     super(props);
   }
 
+  hanleCategoryChange = (newType = CATEGORIES.ALL) => {
+    this.props.onCategoryChange({ newType });
+  };
+
   renderCategories = () => {
     return (
       <div className="dib">
-        <a className="link dim black dib m2" href="#" title="Home">
+        <div
+          className="link dim black dib m2"
+          onClick={() => this.hanleCategoryChange()}
+        >
           <p>全部产品 </p>
           <p>ALL </p>
-        </a>
-        <a className="link dim black dib mh2" href="#" title="About">
+        </div>
+        <div
+          className="link dim black dib mh2"
+          onClick={() => this.hanleCategoryChange(CATEGORIES.TOP)}
+        >
           <p> 上衣 </p>
           <p> top </p>
-        </a>
-        <a className="link dim black dib mh2" href="#" title="Store">
+        </div>
+        <div
+          className="link dim black dib mh2"
+          onClick={() => this.hanleCategoryChange(CATEGORIES.BOTTOM)}
+        >
           <p> 下装 </p>
           <p>bottom </p>
-        </a>
-        <a className="link dim black dib mh2" href="#" title="Contact">
+        </div>
+        <div
+          className="link dim black dib mh2"
+          onClick={() => this.hanleCategoryChange(CATEGORIES.JACKET)}
+        >
           <p>外套</p>
           <p> jacket</p>
-        </a>
-        <a className="link dim black dib mh2" href="#" title="Contact">
+        </div>
+        <div
+          className="link dim black dib mh2"
+          onClick={() => this.hanleCategoryChange(CATEGORIES.ACCESSORY)}
+        >
           <p>配饰</p>
           <p>accessory</p>
-        </a>
+        </div>
       </div>
     );
   };
@@ -49,10 +71,10 @@ class Header extends Component {
               <p>我的试衣间</p>
               <p> my fitting room</p>
             </Link>
-            <a className="link dim black dib ml2" href="#" title="Contact">
+            <div className="link dim black dib ml2" href="#" title="Contact">
               <p>退出</p>
               <p>sign out</p>
-            </a>
+            </div>
           </div>
         </nav>
       </header>
@@ -60,4 +82,13 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  return {
+    onCategoryChange: payload => dispatch(changeSeletedCategory(payload))
+  };
+};
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(Header);

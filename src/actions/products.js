@@ -20,3 +20,8 @@ const requestFakeDataFailed = error => ({
   type: ACTIONS.REQUEST_FAKE_DATA_FAILED,
   error
 });
+
+export const changeSeletedCategory = ({ newType }) => ({
+  type: ACTIONS.CHANGE_SELECTED_CATEGORY,
+  newType
+});
