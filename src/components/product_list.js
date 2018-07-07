@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { requestFakeData } from "../actions/products";
+import { requestFakeData, changeActiveItem } from "../actions/products";
 import { rootSelectors as selectors } from "../reducers/index";
 import ProductInfo from "./product_info";
 
@@ -17,10 +17,12 @@ class ProductList extends Component {
     this.props.onRequestFakeData();
   }
 
-  togglePopup = () => {
+  togglePopup = item => {
     this.setState({
       showPopup: !this.state.showPopup
     });
+
+    this.props.onActiveItemChange({ item });
   };
 
   render() {
@@ -31,11 +33,15 @@ class ProductList extends Component {
           ? selectedItems.map(item => {
               const { name, price, imageSrc } = item;
               return (
-                <div className="fl w-20 ph1" key={item.id}>
-                  <a onClick={this.togglePopup}>
+                <div
+                  className="fl w-20 ph1"
+                  key={item.id}
+                  onClick={() => this.togglePopup(item)}
+                >
+                  <a>
                     <img alt="robots" src={imageSrc} />
                   </a>
-                  <a onClick={this.togglePopup}>
+                  <a>
                     <p>{name}</p>
                     <p>310MOOD / ${price}</p>
                   </a>
@@ -46,7 +52,7 @@ class ProductList extends Component {
 
         <div className="app">
           {this.state.showPopup ? (
-            <ProductInfo text="Close Me" closePopup={this.togglePopup} /> //do lazy loading here
+            <ProductInfo closePopup={this.togglePopup} /> //do lazy loading here
           ) : null}
         </div>
       </div>
@@ -65,7 +71,8 @@ export const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => {
   return {
-    onRequestFakeData: payload => dispatch(requestFakeData(payload))
+    onRequestFakeData: payload => dispatch(requestFakeData(payload)),
+    onActiveItemChange: payload => dispatch(changeActiveItem(payload))
   };
 };
 

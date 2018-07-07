@@ -2,7 +2,8 @@ import { ACTIONS, CATEGORIES } from "../constants";
 
 const initialState = {
   items: [],
-  selectedItems: []
+  selectedItems: [],
+  activeItem: {}
 };
 
 const products = (state = initialState, action = {}) => {
@@ -20,7 +21,8 @@ const products = (state = initialState, action = {}) => {
         ...state,
         selectedItems: state.items.filter(item => item.type === action.newType)
       };
-
+    case ACTIONS.CHANGE_ACTIVE_ITEM:
+      return { ...state, activeItem: action.newActiveItem };
     default:
       return state;
   }
@@ -30,5 +32,6 @@ export default products;
 
 export const selectors = (state = {}) => ({
   getItems: () => state.items,
-  getselectedItems: () => state.selectedItems
+  getselectedItems: () => state.selectedItems,
+  getActiveItem: () => state.activeItem
 });
