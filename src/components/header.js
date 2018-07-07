@@ -9,7 +9,7 @@ class Header extends Component {
 
   renderCategories = () => {
     return (
-      <div>
+      <div className="dib">
         <a className="link dim black dib m2" href="#" title="Home">
           <p>全部产品 </p>
           <p>ALL </p>
@@ -36,11 +36,11 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="bg-white w-100 ph2 pv3 ph4-m ph5-l">
+      <header className="bg-white w-100 ph2 pv3 ph4-m ph4-l">
         <nav className="f7 fw6 ttu tracked bb">
           <div className="w-70 dib">
-            <Link to="/d/">
-              <img src={logo} className="dib w3 mh2" alt="Site Name" />
+            <Link to="/d/" className="dib w3 mh2">
+              <img src={logo} alt="Site Name" />
             </Link>
             <Route path="/d/" render={this.renderCategories} />
           </div>

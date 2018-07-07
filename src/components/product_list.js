@@ -27,24 +27,23 @@ class ProductList extends Component {
     const { items } = this.props;
     return (
       <div>
-        <ul>
-          {items.length > 0
-            ? items.map(item => {
-                const { name, price, imageSrc } = item;
-                return (
-                  <div className="fl w-20" key={item.id}>
-                    <a onClick={this.togglePopup}>
-                      <img alt="robots" src={imageSrc} />
-                    </a>
-                    <a onClick={this.togglePopup}>
-                      <p>{name}</p>
-                      <p>310MOOD / ${price}</p>
-                    </a>
-                  </div>
-                );
-              })
-            : null}
-        </ul>
+        {items.length > 0
+          ? items.map(item => {
+              const { name, price, imageSrc } = item;
+              return (
+                <div className="fl w-20 ph1" key={item.id}>
+                  <a onClick={this.togglePopup}>
+                    <img alt="robots" src={imageSrc} />
+                  </a>
+                  <a onClick={this.togglePopup}>
+                    <p>{name}</p>
+                    <p>310MOOD / ${price}</p>
+                  </a>
+                </div>
+              );
+            })
+          : null}
+
         <div className="app">
           {this.state.showPopup ? (
             <ProductInfo text="Close Me" closePopup={this.togglePopup} /> //do lazy loading here
