@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CartList from "../components/cart_list";
+import Header from "../components/header";
 
 class ShoppingCart extends Component {
   constructor() {
@@ -8,7 +9,12 @@ class ShoppingCart extends Component {
   }
 
   render() {
-    return <CartList />;
+    return (
+      <div>
+        <Header />
+        <CartList />
+      </div>
+    );
   }
 }
 
