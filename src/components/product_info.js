@@ -5,7 +5,18 @@ import { rootSelectors as selectors } from "../reducers/index";
 class ProductInfo extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      clicks: 0
+    };
   }
+
+  IncrementItem = () => {
+    this.setState({ clicks: this.state.clicks + 1 });
+  };
+  DecreaseItem = () => {
+    this.setState({ clicks: this.state.clicks - 1 });
+  };
 
   render() {
     const { activeItem } = this.props;
@@ -13,15 +24,66 @@ class ProductInfo extends Component {
     return (
       <div className="popup">
         <div className="popup_inner ">
-          <button onClick={this.props.closePopup}>返回上一页</button>
-          <div>
+          <div className="pa4">
+            <button onClick={this.props.closePopup}>返回上一页</button>
             <div>
-              <img src={activeItem.imageSrc} />
+              <div className="fl w-40 mr3">
+                <div className="dib fl w-70">
+                  <img src={activeItem.imageSrc} />
+                </div>
+                <div className="dib fl w-25 ml2">
+                  <img src={activeItem.imageSrc} />
+                  <img src={activeItem.imageSrc} />
+                  <img src={activeItem.imageSrc} />
+                </div>
+              </div>
+              <div className="fl w-35">
+                <div>
+                  <h3>{activeItem.name}</h3>
+                  <h3>310MOOD ${activeItem.price}</h3>
+                </div>
+                <div className="mv3">
+                  尺寸/SIZE
+                  <ul className="list pa0">
+                    <li className="dib mr2 tracked">
+                      <a href="#">XS</a>
+                    </li>
+                    <li className="dib mr2 tracked">
+                      <a href="#">XS</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="mv3">
+                  <div className="dib mr4">
+                    颜色/COLOR
+                    <ul className="list pa0">
+                      <li className="dib mr2 tracked">
+                        <a href="#">white</a>
+                      </li>
+                      <li className="dib mr2 tracked">
+                        <a href="#">black</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="dib">
+                    数量/QTY
+                    <div className="div tc v-mid">
+                      <button onClick={this.IncrementItem}>+</button>
+                      <p className="dib">{this.state.clicks}</p>
+                      <button onClick={this.DecreaseItem}>-</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mv3">
+                  DESCRIPTION
+                  <p>classic design</p>
+                </div>
+                <div className="b--solid tc mv5">
+                  <button>加入我的试衣间</button>
+                </div>
+              </div>
             </div>
-            <div>
-              <h1>{activeItem.name}</h1>
-            </div>
-            <div />
           </div>
         </div>
       </div>
