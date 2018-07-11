@@ -17,3 +17,18 @@ export const CATEGORIES = {
   JACKET: "3",
   ACCESSORY: "4"
 };
+
+export const CART_STATUS = {
+  SHOPPING: "0",
+  CONFIRMED: "1",
+  PREPARING: "2",
+  PREPARED: "3",
+  UPDATED: "4"
+};
+
+export const PRODUCT_STATUS = {
+  ADDED: "0",
+  NEW: "1",
+  PREPARING: "2",
+  PREPARED: "3"
+};

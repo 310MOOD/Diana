@@ -1,7 +1,8 @@
 import { ACTIONS } from "../constants";
 
 const initialState = {
-  phone: ""
+  phone: "",
+  cartId: ""
 };
 
 const account = (state = initialState, action = {}) => {
@@ -15,6 +16,6 @@ const account = (state = initialState, action = {}) => {
 
 export default account;
 
-export const selectors = (state = {}) => ({
+export const selectors = (state = initialState) => ({
   getUserPhoneNumber: () => state.phone
 });

@@ -1,28 +1,23 @@
 import { ACTIONS, CATEGORIES } from "../constants";
+import { _converToObjectByKey, _getObjectValues } from "../utility";
 
-const initialState = {
-  items: [],
-  selectedItems: [],
-  activeItem: {}
-};
+const initialState = {};
+
+// id :
+//   {
+//     name:
+//     description:
+//     sizes:
+//     price:
+//     colors:
+//     imgSrc:
+//     category:
+//   }
 
 const products = (state = initialState, action = {}) => {
   switch (action.type) {
     case ACTIONS.REQUEST_FAKE_DATA_SUCCEED:
-      return { selectedItems: [...action.items], items: [...action.items] };
-    case ACTIONS.CHANGE_SELECTED_CATEGORY:
-      const { newType } = action;
-
-      if (newType === CATEGORIES.ALL) {
-        return { ...state, selectedItems: state.items };
-      }
-
-      return {
-        ...state,
-        selectedItems: state.items.filter(item => item.type === action.newType)
-      };
-    case ACTIONS.CHANGE_ACTIVE_ITEM:
-      return { ...state, activeItem: action.newActiveItem };
+      return _converToObjectByKey(action.items, "id");
     default:
       return state;
   }
@@ -30,8 +25,9 @@ const products = (state = initialState, action = {}) => {
 
 export default products;
 
-export const selectors = (state = {}) => ({
-  getItems: () => state.items,
-  getselectedItems: () => state.selectedItems,
-  getActiveItem: () => state.activeItem
+export const selectors = (state = initialState) => ({
+  hasProduct: () => Object.keys(state).length > 0,
+  getItemIds: () => _getObjectValues(state).map(item => item.id),
+  getItemById: id => state[id],
+  getCategoryById: id => state[id].category
 });
