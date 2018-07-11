@@ -1,5 +1,6 @@
 import { ACTIONS } from "../constants";
 import { requestFakeDataAPI } from "../APIs/request_fake_data";
+import { selectors } from "../reducers";
 
 export const requestFakeData = () => dispatch => {
   dispatch({ type: ACTIONS.REQUEST_FAKE_DATA });
@@ -21,12 +22,23 @@ const requestFakeDataFailed = error => ({
   error
 });
 
-export const changeSeletedCategory = ({ newType }) => ({
-  type: ACTIONS.CHANGE_SELECTED_CATEGORY,
-  newType
-});
+export const changeSeletedCategory = ({ newCategory }) => (
+  dispatch,
+  getState
+) => {
+  const { getProductSelectors } = selectors(getState());
+  const { getItemIds, getCategoryById } = getProductSelectors();
+  return dispatch({
+    type: ACTIONS.CHANGE_SELECTED_CATEGORY,
+    allItemIdsWithCategory: getItemIds().map(id => ({
+      id,
+      category: getCategoryById(id)
+    })),
+    newCategory
+  });
+};
 
-export const changeActiveItem = ({ item }) => ({
+export const changeActiveItem = ({ itemId }) => ({
   type: ACTIONS.CHANGE_ACTIVE_ITEM,
-  newActiveItem: item
+  newActiveItemId: itemId
 });

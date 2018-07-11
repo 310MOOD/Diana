@@ -6,7 +6,7 @@ const fakeData = [
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["yellow", "black"],
     stocks: "21",
-    type: "3",
+    category: "3",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/1508107268jpg_470x.jpg?v=1515606838",
     description: "COOL JACKET"
@@ -18,7 +18,7 @@ const fakeData = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["white", "black"],
     stocks: "10",
-    type: "1",
+    category: "1",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/untitled-9654-2_470x.jpg?v=1523642653",
     description: "COOL SHIRT"
@@ -30,7 +30,7 @@ const fakeData = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["white", "black", "pink"],
     stocks: "0",
-    type: "2",
+    category: "2",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/1508107213jpg_470x.jpg?v=1508819377",
     description: "COOL PANTS"
@@ -42,7 +42,7 @@ const fakeData = [
     sizes: ["ONE SIZE"],
     colors: ["GOLD"],
     stocks: "5",
-    type: "4",
+    category: "4",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/Face_Drop_Earrings_470x.JPG?v=1518932078",
     description: "COOL EARRING"
@@ -54,7 +54,7 @@ const fakeData = [
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["yellow", "black"],
     stocks: "21",
-    type: "3",
+    category: "3",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/1508107268jpg_470x.jpg?v=1515606838",
     description: "COOL JACKET"
@@ -66,7 +66,7 @@ const fakeData = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["white", "black"],
     stocks: "10",
-    type: "1",
+    category: "1",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/untitled-9654-2_470x.jpg?v=1523642653",
     description: "COOL SHIRT"
@@ -78,7 +78,7 @@ const fakeData = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["white", "black", "pink"],
     stocks: "0",
-    type: "2",
+    category: "2",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/1508107213jpg_470x.jpg?v=1508819377",
     description: "COOL PANTS"
@@ -90,7 +90,7 @@ const fakeData = [
     sizes: ["ONE SIZE"],
     colors: ["GOLD"],
     stocks: "5",
-    type: "4",
+    category: "4",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/Face_Drop_Earrings_470x.JPG?v=1518932078",
     description: "COOL EARRING"
@@ -102,7 +102,7 @@ const fakeData = [
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["yellow", "black"],
     stocks: "21",
-    type: "3",
+    category: "3",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/1508107268jpg_470x.jpg?v=1515606838",
     description: "COOL JACKET"
@@ -114,7 +114,7 @@ const fakeData = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["white", "black"],
     stocks: "10",
-    type: "1",
+    category: "1",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/untitled-9654-2_470x.jpg?v=1523642653",
     description: "COOL SHIRT"
@@ -126,7 +126,7 @@ const fakeData = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["white", "black", "pink"],
     stocks: "0",
-    type: "2",
+    category: "2",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/1508107213jpg_470x.jpg?v=1508819377",
     description: "COOL PANTS"
@@ -138,7 +138,7 @@ const fakeData = [
     sizes: ["ONE SIZE"],
     colors: ["GOLD"],
     stocks: "5",
-    type: "4",
+    category: "4",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/Face_Drop_Earrings_470x.JPG?v=1518932078",
     description: "COOL EARRING"
@@ -150,7 +150,7 @@ const fakeData = [
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["yellow", "black"],
     stocks: "21",
-    type: "3",
+    category: "3",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/1508107268jpg_470x.jpg?v=1515606838",
     description: "COOL JACKET"
@@ -162,7 +162,7 @@ const fakeData = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["white", "black"],
     stocks: "10",
-    type: "1",
+    category: "1",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/untitled-9654-2_470x.jpg?v=1523642653",
     description: "COOL SHIRT"
@@ -174,7 +174,7 @@ const fakeData = [
     sizes: ["S", "M", "L", "XL"],
     colors: ["white", "black", "pink"],
     stocks: "0",
-    type: "2",
+    category: "2",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/1508107213jpg_470x.jpg?v=1508819377",
     description: "COOL PANTS"
@@ -186,7 +186,7 @@ const fakeData = [
     sizes: ["ONE SIZE"],
     colors: ["GOLD"],
     stocks: "5",
-    type: "4",
+    category: "4",
     imageSrc:
       "https://cdn.shopify.com/s/files/1/1004/4558/products/Face_Drop_Earrings_470x.JPG?v=1518932078",
     description: "COOL EARRING"

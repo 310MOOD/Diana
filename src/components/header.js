@@ -10,8 +10,8 @@ class Header extends Component {
     super(props);
   }
 
-  hanleCategoryChange = (newType = CATEGORIES.ALL) => {
-    this.props.onCategoryChange({ newType });
+  hanleCategoryChange = (newCategory = CATEGORIES.ALL) => {
+    this.props.onCategoryChange({ newCategory });
   };
 
   renderCategories = () => {

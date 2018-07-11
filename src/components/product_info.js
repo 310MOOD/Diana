@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { rootSelectors as selectors } from "../reducers/index";
+import { selectors } from "../reducers/index";
 
 class ProductInfo extends Component {
   constructor(props) {
@@ -92,10 +92,14 @@ class ProductInfo extends Component {
 }
 
 const mapStateToProps = state => {
-  const { getProductSelectors } = selectors(state);
+  const { getProductSelectors, getListSelectors } = selectors(state);
+  const { getActiveItemId } = getListSelectors();
+  const { getItemById } = getProductSelectors();
+
+  const activeItemId = getActiveItemId();
 
   return {
-    activeItem: getProductSelectors().getActiveItem()
+    activeItem: getItemById(activeItemId)
   };
 };
 

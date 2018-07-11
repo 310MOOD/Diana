@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { rootSelectors as selectors } from "../reducers/index";
+import { selectors } from "../reducers/index";
 import ProductList from "../components/product_list";
 import Scrollable from "../components/scrollable";
-import { requestFakeData } from "../actions/products";
 import Header from "../components/header";
 
 class Dashboard extends Component {
@@ -25,7 +24,7 @@ class Dashboard extends Component {
 }
 
 export const mapStateToProps = state => {
-  const { getAccountSelectors, getProductSelectors } = selectors(state);
+  const { getAccountSelectors } = selectors(state);
 
   return {
     userPhoneNumber: getAccountSelectors().getUserPhoneNumber()

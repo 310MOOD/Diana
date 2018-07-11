@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { requestFakeData, changeActiveItem } from "../actions/products";
-import { rootSelectors as selectors } from "../reducers/index";
+import { selectors } from "../reducers/index";
 import ProductInfo from "./product_info";
 
 class ProductList extends Component {
@@ -17,12 +17,12 @@ class ProductList extends Component {
     this.props.onRequestFakeData();
   }
 
-  togglePopup = item => {
+  togglePopup = itemId => {
     this.setState({
       showPopup: !this.state.showPopup
     });
 
-    this.props.onActiveItemChange({ item });
+    this.props.onActiveItemChange({ itemId });
   };
 
   render() {
@@ -36,7 +36,7 @@ class ProductList extends Component {
                 <div
                   className="fl w-20 ph1"
                   key={item.id}
-                  onClick={() => this.togglePopup(item)}
+                  onClick={() => this.togglePopup(item.id)}
                 >
                   <a>
                     <img alt="robots" src={imageSrc} />
@@ -61,11 +61,15 @@ class ProductList extends Component {
 }
 
 export const mapStateToProps = state => {
-  const { getAccountSelectors, getProductSelectors } = selectors(state);
-
+  const {
+    getAccountSelectors,
+    getSelectedItems,
+    getProductSelectors
+  } = selectors(state);
+  const { hasProduct } = getProductSelectors();
   return {
     userPhoneNumber: getAccountSelectors().getUserPhoneNumber(),
-    selectedItems: getProductSelectors().getselectedItems()
+    selectedItems: hasProduct() ? getSelectedItems() : []
   };
 };
 
