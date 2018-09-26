@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { selectors } from "../reducers/index";
 
 class ProductSummary extends Component {
   constructor(props) {
@@ -18,26 +19,48 @@ class ProductSummary extends Component {
   };
 
   render() {
+    const { items = [] } = this.props;
+
     return (
       <div className="bg-white mw-80 ">
-        <div className="dib fl w-60 ml5">
-          <img
-            className="w-20 pl5"
-            alt="robots"
-            src="https://cdn.shopify.com/s/files/1/1004/4558/products/untitled-9654-2_470x.jpg?v=1523642653"
-          />
-        </div>
-        <div className="div fl w-15 mh5 tc v-mid">
-          <button onClick={this.IncrementItem}>+</button>
-          <p className="dib">{this.state.clicks}</p>
-          <button onClick={this.DecreaseItem}>-</button>
-        </div>
-        <div className="div fl w-15 tc v-mid">
-          <p>$199</p>
-        </div>
+        {items.map(item => {
+          return (
+            <div>
+              <div className="dib fl w-60 ml5">
+                <img className="w-20 pl5" alt="robots" src={item.imageSrc} />
+              </div>
+              <div className="div fl w-15 mh5 tc v-mid">
+                <button onClick={this.DecreaseItem}>-</button>
+                <p className="dib">{item.count}</p>
+                <button onClick={this.IncrementItem}>+</button>
+              </div>
+              <div className="div fl w-15 tc v-mid">
+                <p>${item.totalPrice}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }
 }
 
-export default ProductSummary;
+export const mapStateToProps = state => {
+  const { getItemById, getCartSelectors, getTotalPriceForAnItem } = selectors(
+    state
+  );
+
+  return {
+    items: getCartSelectors()
+      .getCartItems()
+      .map(item => {
+        return {
+          ...item,
+          totalPrice: getTotalPriceForAnItem(item.id, item.count),
+          imageSrc: getItemById(item.id).imageSrc
+        };
+      })
+  };
+};
+
+export default connect(mapStateToProps)(ProductSummary);

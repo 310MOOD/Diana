@@ -42,3 +42,9 @@ export const changeActiveItem = ({ itemId }) => ({
   type: ACTIONS.CHANGE_ACTIVE_ITEM,
   newActiveItemId: itemId
 });
+
+//payload: {itemId, size, color}
+export const addItemToCart = payload => ({
+  type: ACTIONS.ADD_ITEM_TO_CART,
+  ...payload
+});
