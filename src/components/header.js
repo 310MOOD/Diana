@@ -4,11 +4,19 @@ import logo from "../img/logo.png";
 import { Route, Link } from "react-router-dom";
 import { CATEGORIES } from "../constants";
 import { changeSeletedCategory } from "../actions/products";
+import FittingRoom from "../views/fitting_room";
 
 class Header extends Component {
   constructor(props) {
     super(props);
+    this.state = { showCart: false };
   }
+
+  handleClick = () => {
+    this.setState({
+      showCart: !this.state.showCart
+    });
+  };
 
   hanleCategoryChange = (newCategory = CATEGORIES.ALL) => {
     this.props.onCategoryChange({ newCategory });
@@ -67,13 +75,19 @@ class Header extends Component {
             <Route path="/d/" render={this.renderCategories} />
           </div>
           <div className="w-15 dib">
-            <Link className="link dim black dib ml2" to="/cart/">
+            <a className="dim black dib ml2" onClick={() => this.handleClick()}>
               <p>我的试衣间</p>
               <p> my fitting room</p>
-            </Link>
+            </a>
             <div className="link dim black dib ml2" href="#" title="Contact">
               <p>退出</p>
               <p>sign out</p>
+            </div>
+
+            <div>
+              {this.state.showCart ? (
+                <FittingRoom handleClick={this.handleClick} />
+              ) : null}
             </div>
           </div>
         </nav>

@@ -53,3 +53,30 @@
   margin: auto;
   background: white;
 }
+
+.fitting_room {
+  background: #fff;
+  border-left: 1px solid #e9e7e7;
+  box-sizing: border-box;
+  color: #111;
+  height: 100%;
+  right: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 40%;
+  z-index: 1;
+}
+
+.fitting_room .table_head {
+  height: 15%;
+  padding: 5%;
+}
+
+.product_summary {
+  height: 20%;
+}
+
+.fitting_room .header {
+  height: 10%;
+}
