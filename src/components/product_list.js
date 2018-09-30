@@ -50,7 +50,7 @@ class ProductList extends Component {
             })
           : null}
 
-        <div className="app">
+        <div>
           {this.state.showPopup ? (
             <ProductInfo closePopup={this.togglePopup} /> //do lazy loading here
           ) : null}
